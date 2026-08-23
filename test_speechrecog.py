@@ -38,4 +38,4 @@ with sr.Microphone() as source:
         # using google speech recognition
         print("Text: "+r.recognize_google(audio_text))
     except:
-         print("Sorry, I did not get that")
+        print("Sorry, I did not get that")
