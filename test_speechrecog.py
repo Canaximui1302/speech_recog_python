@@ -4,7 +4,7 @@ import speech_recognition as sr
 r = sr.Recognizer()
 
 file = sr.AudioFile('test.wav')
-r.pause_threshold = 5
+r.pause_threshold = 1
 
 # Reading Microphone as source
 # listening the speech and store in audio_text variable
@@ -28,7 +28,7 @@ with file as source:
 # For testing with live recording
 with sr.Microphone() as source:
     print("Talk")
-    audio_text = r.listen(source, phrase_time_limit=20)
+    audio_text = r.listen(source, phrase_time_limit=6)
     print("Time over, thanks")
     # recoginze_() method will throw a request
     # error if the API is unreachable,
@@ -36,6 +36,6 @@ with sr.Microphone() as source:
     
     try:
         # using google speech recognition
-        print("Text: "+r.recognize_google(audio_text))
+        print("Input recognized from recording: "+r.recognize_google(audio_text))
     except:
         print("Sorry, I did not get that")
